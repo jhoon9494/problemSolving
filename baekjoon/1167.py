@@ -18,17 +18,17 @@ for _ in range(v):
 def dijkstra(start):
   distance=[INF]*(v+1)
   q=[]
-  heapq.heappush(q,(start,0))
+  heapq.heappush(q,(0,start))
   distance[start]=0
   while q:
-    now,dist=heapq.heappop(q)
+    dist,now=heapq.heappop(q)
     if distance[now]<dist:
       continue
     for i in graph[now]:
       cost=dist+i[1]
       if cost<distance[i[0]]:
         distance[i[0]]=cost
-        heapq.heappush(q,(i[0],cost))
+        heapq.heappush(q,(cost,i[0]))
   return max(distance[1:v+1]), distance.index(max(distance[1:v+1]))
 
 max_index=dijkstra(1)[1]
