@@ -66,6 +66,7 @@ def game(cnt, bricks, x):
   
   for y in range(h):
     if copyBricks[y][x] != 0:
+      breakRange = 0
       breakBrick(x, y, copyBricks[y][x], copyBricks)
 
       minRange = x - breakRange + 1
