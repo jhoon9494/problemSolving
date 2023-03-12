@@ -14,9 +14,8 @@ for _ in range(n):
 for i in range(m):
   keywords = input().rstrip().split(',')
   for k in keywords:
-    if k in memo.keys():
-      if memo.get(k, 0):
-        del memo[k]
-        n -= 1
+    if memo.get(k, 0):
+      del memo[k]
+      n -= 1
   
   print(n)
